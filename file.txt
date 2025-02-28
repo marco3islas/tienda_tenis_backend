@@ -1,0 +1,12 @@
+Tienda de tenis
+
+Mostrar foto del tenis
+Mostrar marca del tenis
+Mostrar precio de los tenis
+Mostrar las tallas de los tenis
+Mostrar existencias de los tenis
+
+clases tenis
+Conectar a la base de datos
+leer la base de datos
+obtener los datos

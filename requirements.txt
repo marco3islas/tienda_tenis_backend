@@ -1,0 +1,6 @@
+flask
+jsonify
+requests
+flask-cors
+SQLAlchemy
+
