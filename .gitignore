@@ -1,0 +1,12 @@
+# Entorno virtual (si lo tienes dentro del proyecto)
+venv/
+env/
+*.pyc
+__pycache__/
+instance/
+config.py  # Si contiene información sensible como claves o credenciales
+*.log
+*.sqlite3  # Si usas SQLite y no quieres subir la base de datos
+.DS_Store  # Archivos de MacOS
+*.pyc
+*.pyo
