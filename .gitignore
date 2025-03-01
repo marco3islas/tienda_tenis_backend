@@ -10,3 +10,6 @@ config.py  # Si contiene información sensible como claves o credenciales
 .DS_Store  # Archivos de MacOS
 *.pyc
 *.pyo
+tiendaDeTenis/
+scrappTienda.py
+file.txt
