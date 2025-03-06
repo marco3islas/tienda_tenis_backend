@@ -1,13 +1,14 @@
 import pandas as pd
 import psycopg2
 from psycopg2 import Error
+import os
 
 # Configuración de la conexión a PostgreSQL
 conn_params = {
-    "dbname": "tienda_tenid_db",
+    "dbname": "tienda_tenis_db",
     "user": "tienda_tenis_db_user",
     "password": "FiOtpW1hu773lPHU4FxZkhIMYkJBcBWR",
-    "host": "dpg-cv4usvfnoe9s73er3010-a",
+    "host": "dpg-cv4usvfnoe9s73er3010-a.oregon-postgres.render.com",
     "port": "5432"
 }
 
