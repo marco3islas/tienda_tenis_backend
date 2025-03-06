@@ -4,10 +4,10 @@ from psycopg2 import Error
 
 # Configuración de la conexión a PostgreSQL
 conn_params = {
-    "dbname": "tienda_tenis",
-    "user": "marco",
-    "password": "admin",
-    "host": "localhost",
+    "dbname": "tienda_tenid_db",
+    "user": "tienda_tenis_db_user",
+    "password": "FiOtpW1hu773lPHU4FxZkhIMYkJBcBWR",
+    "host": "dpg-cv4usvfnoe9s73er3010-a",
     "port": "5432"
 }
 

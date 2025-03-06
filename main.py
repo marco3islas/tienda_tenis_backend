@@ -8,7 +8,7 @@ CORS(app)
 
 # Configuración para PostgreSQL
 app.config['SECRET_KEY'] = "f02834cddc43ff08ec46bcf040faba74ddd79fea8fdfe13db8464265fa909e30"
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://marco:admin@localhost:5432/tienda_tenis"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://tienda_tenis_db_user:FiOtpW1hu773lPHU4FxZkhIMYkJBcBWR@dpg-cv4usvfnoe9s73er3010-a/tienda_tenis_db"
 
 db = SQLAlchemy(app)
 
