@@ -13,3 +13,4 @@ config.py  # Si contiene información sensible como claves o credenciales
 tiendaDeTenis/
 scrappTienda.py
 file.txt
+pg_hba.conf.bak
