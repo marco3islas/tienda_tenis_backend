@@ -11,9 +11,6 @@ load_dotenv()
 # Configuración para PostgreSQL
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 conexion = app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('PASSWORD')}@{os.getenv('HOST')}:{os.getenv('PORT')}/{os.getenv('DATABASE')}"
-print("esta es la conexion", conexion)
-
-
 
 db = SQLAlchemy(app)
 
@@ -58,3 +55,4 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True, port=5500)
+    app.run(host=41171, port=port)
