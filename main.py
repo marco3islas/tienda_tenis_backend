@@ -31,7 +31,7 @@ class Productos(db.Model):
             'tallas' : self.tallas
         }
 
-@app.before_first_request
+@app.before_serving()
 def create_tables():
     with app.app_context():
         db.create_all()
