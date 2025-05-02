@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins="https://tiendatenis.netlify.app/")
 
 load_dotenv()
 # Configuración para PostgreSQL
