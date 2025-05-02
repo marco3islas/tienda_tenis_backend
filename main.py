@@ -33,7 +33,8 @@ class Productos(db.Model):
 
 @app.before_first_request
 def create_tables():
-    db.create_all()
+    with app.app_context():
+        db.create_all()
 
 @app.route("/", methods=["GET"])
 def home():
