@@ -31,11 +31,6 @@ class Productos(db.Model):
             'tallas' : self.tallas
         }
 
-@app.before_serving()
-def create_tables():
-    with app.app_context():
-        db.create_all()
-
 @app.route("/", methods=["GET"])
 def home():
     return jsonify({"message": "Backend de Tienda Tenis funcionando correctamente!"}), 200
@@ -53,3 +48,8 @@ def get_item(item_id):
         return jsonify({'error': 'Producto not found'}), 404
     return jsonify(producto.to_json())
 
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
