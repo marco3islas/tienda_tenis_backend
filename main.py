@@ -8,10 +8,9 @@ app = Flask(__name__)
 CORS(app, origins="https://tiendatenis.netlify.app/")
 
 load_dotenv()
-# Configuración para PostgreSQL
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-conexion = app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('PASSWORD')}@{os.getenv('HOST')}:{os.getenv('PORT')}/{os.getenv('DATABASE')}"
 
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('PASSWORD')}@{os.getenv('HOST')}:{os.getenv('PORT')}/{os.getenv('DATABASE')}"
 db = SQLAlchemy(app)
 
 class Productos(db.Model):
@@ -32,11 +31,13 @@ class Productos(db.Model):
             'tallas' : self.tallas
         }
 
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 @app.route("/", methods=["GET"])
 def home():
     return jsonify({"message": "Backend de Tienda Tenis funcionando correctamente!"}), 200
-
 
 @app.route('/productos', methods=['GET'])
 def get_data():
@@ -51,9 +52,3 @@ def get_item(item_id):
         return jsonify({'error': 'Producto not found'}), 404
     return jsonify(producto.to_json())
 
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-    # app.run(debug=True, port=5500)
-    port=int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
