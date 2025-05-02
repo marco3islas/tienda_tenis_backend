@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 
 app = Flask(__name__)
-CORS(app, origins="https://tiendatenis.netlify.app/")
+CORS(app, origins=["https://tiendatenis.netlify.app", "http://localhost:4200", "http://127.0.0.1:4200"])
 
 load_dotenv()
 
