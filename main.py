@@ -10,11 +10,21 @@ CORS(app)
 app.config['SECRET_KEY'] = "f02834cddc43ff08ec46bcf040faba74ddd79fea8fdfe13db8464265fa909e30"
 # app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://tienda_tenis_db_user:FiOtpW1hu773lPHU4FxZkhIMYkJBcBWR@dpg-cv4usvfnoe9s73er3010-a.oregon-postgres.render.com/tienda_tenis_db"
 
-app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('PASSWORD')}@{os.getenv('HOST')}:{os.getenv('PORT')}/{os.getenv('DATABASE')}?sslmode=require"
+# 1. Construimos la URL (Asegúrate de que 'DATABASE' sea el nombre de la DB, no el host)
+DATABASE_URL = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('PASSWORD')}@{os.getenv('HOST')}:{os.getenv('PORT')}/{os.getenv('DATABASE')}?sslmode=require"
 
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
 
+# 2. Aquí pasamos los parámetros de reconexión que mencionamos antes
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+    "pool_size": 10,
+    "max_overflow": 20,
+    "pool_recycle": 300,
+    "pool_pre_ping": True,
+}
 
 db = SQLAlchemy(app)
+
 
 class Productos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
